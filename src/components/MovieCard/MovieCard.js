@@ -1,14 +1,14 @@
-import React from 'react'
+import React from "react";
 import "./MovieCard.scss";
+import { Link } from "react-router-dom";
 
-function MovieCard({data}) {
-
-
+function MovieCard({ data }) {
   return (
     <div className="card-item">
-      <div className="card-inner">
-        <div className="card-top">
-          <img src={data.Poster} alt={data.Title} />
+      <Link to={`/movie/${data.imdbID}`}>
+        <div className="card-inner">
+          <div className="card-top">
+            <img src={data.Poster} alt={data.Title} />
           </div>
           <div className="card-bottom">
             <div className="card-info">
@@ -16,10 +16,10 @@ function MovieCard({data}) {
               <p>{data.Year}</p>
             </div>
           </div>
-       
-      </div>
+        </div>
+      </Link>
     </div>
-  )
+  );
 }
 
-export default MovieCard
+export default MovieCard;
