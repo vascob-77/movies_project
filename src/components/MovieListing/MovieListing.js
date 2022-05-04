@@ -1,10 +1,21 @@
 import React, { useEffect } from "react";
+import Slider from "react-slick";
+import { Settings } from "../../common/settings";
 import { useSelector } from "react-redux";
 import MovieCard from "../MovieCard/MovieCard";
 import { getAllMovies, getAllShows } from "../../features/movies/movieSlice";
 import "./MovieListing.scss";
 
 function MovieListing() {
+
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 6,
+    slidesToScroll: 3
+  };
+
   const movies = useSelector(getAllMovies);
   const shows = useSelector(getAllShows);
   let renderMovies,renderShows = "";
@@ -32,11 +43,16 @@ function MovieListing() {
     <div className="movie-wrapper">
       <div className="movie-list">
         <h2>Movies</h2>
-        <div className="movie-container">{renderMovies}</div>
+        <div className="movie-container">
+        <Slider {...Settings}>
+        {renderMovies}
+        </Slider>
+        </div>
       </div>
       <div className="movie-list">
         <h2>Shows</h2>
-        <div className="movie-container">{renderShows}</div>
+        <div className="movie-container">
+        <Slider {...Settings}>{renderShows}</Slider></div>
       </div>
     </div>
   );
