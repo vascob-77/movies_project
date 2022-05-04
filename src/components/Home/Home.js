@@ -8,10 +8,11 @@ import { fetchDataShows } from "../../features/movies/movieSlice";
 function Home() {
   
   const dispatch = useDispatch();
-
+  const movies = "Moto";
+  const shows = 'Crypto'
   useEffect(() => {
-    dispatch(fetchDataMovies())
-    dispatch(fetchDataShows())
+    dispatch(fetchDataMovies(movies))
+    dispatch(fetchDataShows(shows))
   }, [dispatch]);
 
   return (
