@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { fetchDataMovies, fetchDataShows } from "../../features/movies/movieSlice";
 import "./Header.scss";
 //Images
 import userAvatar from "../../images/user.png";
-import { useDispatch } from "react-redux";
-import { fetchDataMovies, fetchDataShows } from "../../features/movies/movieSlice";
+import logo from "../../common/logo.png"
+
 
 function Header() {
 
@@ -22,7 +24,7 @@ function Header() {
   return (
     <div className="header">
       <div className="logo">
-        <Link to="/">Movie App</Link>
+        <Link to="/"><img src={logo} width={150} alt="Logo" /></Link>
       </div>
       <div className="search-bar">
         <form onSubmit={submitHandler}>
