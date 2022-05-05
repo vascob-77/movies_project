@@ -1,1 +1,1 @@
-export const APIKey = "a0982352";
+export const APIKey = process.env.REACT_APP_OMDBAPI;
